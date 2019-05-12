@@ -58,22 +58,22 @@ result <- file.copy(from = "CMakeLists.txt",
 # NOTE: --keep-empty-dirs is necessary to keep the deep paths expected
 #       by CMake while also meeting the CRAN req to create object files
 #       on demand
-devtools::build(pkg = "lightgbm_r",
-                args = c("--keep-empty-dirs"))
+#devtools::build(pkg = "lightgbm_r",
+#                args = c("--keep-empty-dirs"))
 
 # Install the package
-version <- gsub(
-  "Version: ",
-  "",
-  grep(
-    "Version: ",
-    readLines(con = file.path("lightgbm_r", "DESCRIPTION")),
-    value = TRUE
-  )
-)
-tarball <- file.path(getwd(), sprintf("lightgbm_%s.tar.gz", version))
+#version <- gsub(
+#  "Version: ",
+#  "",
+#  grep(
+#    "Version: ",
+#    readLines(con = file.path("lightgbm_r", "DESCRIPTION")),
+#    value = TRUE
+#  )
+#)
+#tarball <- file.path(getwd(), sprintf("lightgbm_%s.tar.gz", version))
 
-system(sprintf("R CMD INSTALL %s --no-multiarch", tarball))
+#system(sprintf("R CMD INSTALL %s --no-multiarch", tarball))
 message ("Success!!!")
 # Run R CMD CHECK
 # R CMD CHECK lightgbm_2.1.2.tar.gz --as-cran | tee check.log | cat
