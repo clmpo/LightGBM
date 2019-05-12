@@ -1,5 +1,5 @@
 print("========================in build-site.R====================================")
-setwd("/home/docs/checkouts/readthedocs.org/user_builds/lightgbm/checkouts/docs/R-package")
+setwd("/home/docs/checkouts/readthedocs.org/user_builds/lightgbm/checkouts/docs/lightgbm_r")
 devtools::document()
 
 if (!dir.exists("./docs")) {
@@ -12,7 +12,7 @@ library(pkgdown)
 clean_site()
 init_site()
 build_home(quiet = FALSE,preview = FALSE)
-build_reference(preview = FALSE)
+#build_reference(preview = FALSE)
 # # to-do
 # build_articles(preview = FALSE)
 # build_tutorials(preview = FALSE)
