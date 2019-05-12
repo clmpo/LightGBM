@@ -177,6 +177,7 @@ def generate_doxygen_xml(app):
     cd /home/docs/checkouts/readthedocs.org/user_builds/lightgbm/checkouts/docs
     Rscript -e "devtools::install_version('roxygen2', version = '6.0.1')"
     Rscript -e 'install.packages("pkgdown", dependencies = TRUE)'
+    Rscript build_r.R
     Rscript -e "sessionInfo()"
     Rscript pkgdown/build-site.R
     """
@@ -211,4 +212,4 @@ def setup(app):
     else:
         app.add_directive('doxygenfile', IgnoredDirective)
     app.add_javascript("js/script.js")
-#    app.connect("build-finished", lambda app, exception: copy_tree(app.confdir + '/../pkgdown/docs', app.outdir + '/R', verbose=0))
+#    app.connect("build-finished", lambda app, exception: copy_tree(app.confdir + '/../lightgbm_r/docs', app.outdir + '/R', verbose=0))
